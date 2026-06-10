@@ -1,0 +1,370 @@
+/* ─── Page wrapper ─────────────────────────────────────── */
+.page {
+    min-height: 100vh;
+    background: var(--bg-color);
+    color: var(--text-main);
+    animation: fadeIn 0.4s ease;
+}
+
+/* ─── Hero ──────────────────────────────────────────────── */
+.hero {
+    position: relative;
+    min-height: 85vh;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 5vh;
+    background-size: cover;
+    background-position: center 20%;
+    background-repeat: no-repeat;
+    background-color: var(--bg-color);
+    overflow: hidden;
+}
+
+.heroOverlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(to right, rgba(6, 8, 16, 0.98) 0%, rgba(6, 8, 16, 0.7) 50%, rgba(6, 8, 16, 0.2) 100%),
+        linear-gradient(to top, rgba(6, 8, 16, 1) 0%, rgba(6, 8, 16, 0.4) 30%, transparent 100%);
+}
+
+.heroInner {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: flex-end;
+    gap: 3rem;
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+    padding-top: calc(var(--nav-height) + 2rem);
+    animation: fadeInUp 0.5s ease 0.1s both;
+}
+
+/* ─── Poster ────────────────────────────────────────────── */
+.poster {
+    width: 240px;
+    min-width: 240px;
+    aspect-ratio: 2/3;
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.08);
+    object-fit: cover;
+    transition: transform var(--transition-smooth);
+}
+
+.poster:hover {
+    transform: scale(1.02) translateY(-4px);
+}
+
+/* ─── Info ──────────────────────────────────────────────── */
+.info {
+    flex: 1;
+    padding-bottom: 1rem;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: var(--primary-accent-dim);
+    border: 1px solid rgba(229, 9, 20, 0.3);
+    color: var(--primary-accent-hover);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 0.3rem 0.75rem;
+    border-radius: 99px;
+    margin-bottom: 1rem;
+    width: fit-content;
+}
+
+.title {
+    font-size: clamp(2rem, 4vw, 3.8rem);
+    font-weight: 900;
+    margin-bottom: 0.4rem;
+    line-height: 1.05;
+    letter-spacing: -1.5px;
+    background: linear-gradient(135deg, #fff 50%, rgba(255, 255, 255, 0.6) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.tagline {
+    font-size: 1.05rem;
+    font-style: italic;
+    color: var(--text-muted);
+    margin-bottom: 1.25rem;
+    opacity: 0.8;
+}
+
+.meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem 1rem;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+.metaDot {
+    width: 3px;
+    height: 3px;
+    background: var(--text-subtle);
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.rating {
+    font-weight: 700;
+    color: var(--secondary-accent);
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.genre {
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid var(--border-color);
+    border-radius: 99px;
+    padding: 0.2rem 0.8rem;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    transition: all var(--transition-fast);
+}
+
+.genre:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: var(--border-color-hover);
+    color: var(--text-main);
+}
+
+.overview {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+    max-width: 640px;
+    margin-bottom: 2rem;
+}
+
+/* ─── Action Buttons ────────────────────────────────────── */
+.actions {
+    display: flex;
+    gap: 0.9rem;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.8rem 1.8rem;
+    border-radius: var(--border-radius-sm);
+    font-size: 1rem;
+    font-weight: 700;
+    transition: all var(--transition-spring);
+    cursor: pointer;
+    letter-spacing: 0.2px;
+}
+
+.btnPrimary {
+    background: var(--text-main);
+    color: var(--bg-color);
+    box-shadow: var(--shadow-md);
+}
+
+.btnPrimary:hover {
+    background: rgba(255, 255, 255, 0.85);
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    color: var(--bg-color);
+}
+
+.btnSecondary {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text-main);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(6px);
+}
+
+.btnSecondary:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: scale(1.04) translateY(-2px);
+    color: var(--text-main);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.btnDanger {
+    background: var(--primary-accent-dim);
+    color: var(--primary-accent-hover);
+    border: 1px solid rgba(229, 9, 20, 0.3);
+}
+
+.btnDanger:hover {
+    background: rgba(229, 9, 20, 0.25);
+    transform: scale(1.04) translateY(-2px);
+    color: var(--primary-accent-hover);
+}
+
+/* ─── Sections ──────────────────────────────────────────── */
+.section,
+.trailerSection {
+    padding: 3.5rem 2rem;
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.section {
+    animation: fadeInUp 0.5s ease 0.2s both;
+}
+
+.sectionTitle {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 1.75rem;
+    color: var(--text-main);
+    letter-spacing: -0.4px;
+    position: relative;
+    padding-left: 1rem;
+}
+
+.sectionTitle::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 1.1em;
+    background: var(--primary-accent);
+    border-radius: 99px;
+}
+
+/* ─── Divider ───────────────────────────────────────────── */
+.divider {
+    height: 1px;
+    background: var(--border-color);
+    max-width: var(--max-width);
+    margin: 0 2rem;
+}
+
+/* ─── Cast ──────────────────────────────────────────────── */
+.castList {
+    display: flex;
+    gap: 1.25rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    scrollbar-width: none;
+}
+
+.castList::-webkit-scrollbar {
+    display: none;
+}
+
+.castMember {
+    min-width: 100px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.castImage {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 0.6rem;
+    border: 2px solid var(--border-color);
+    transition: all var(--transition-smooth);
+    display: block;
+}
+
+.castMember:hover .castImage {
+    border-color: var(--primary-accent);
+    transform: scale(1.08);
+    box-shadow: 0 0 0 4px var(--primary-accent-dim);
+}
+
+.castName {
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--text-main);
+    margin-bottom: 0.15rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.castCharacter {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ─── Trailer ───────────────────────────────────────────── */
+.trailerSection {
+    animation: fadeInUp 0.5s ease 0.3s both;
+}
+
+.trailerWrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.7);
+    border: 1px solid var(--border-color);
+}
+
+.trailerWrapper iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* ─── Responsive ────────────────────────────────────────── */
+@media (max-width: 900px) {
+    .heroInner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+    }
+
+    .poster {
+        width: 160px;
+        min-width: 160px;
+    }
+
+    .title {
+        font-size: 2rem;
+        letter-spacing: -0.5px;
+    }
+
+    .section,
+    .trailerSection {
+        padding: 2rem 1rem;
+    }
+
+    .divider {
+        margin: 0 1rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .poster {
+        width: 130px;
+        min-width: 130px;
+    }
+
+    .btn {
+        padding: 0.7rem 1.4rem;
+        font-size: 0.95rem;
+    }
+}

@@ -1,0 +1,176 @@
+.page {
+    min-height: 100vh;
+    padding-top: calc(var(--nav-height) + 3rem);
+    padding-bottom: 4rem;
+    background: var(--bg-color);
+    animation: fadeIn 0.4s ease;
+}
+
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* ── Profile Section ───────────────────────────────────── */
+.profileSection {
+    display: flex;
+    gap: 3rem;
+    align-items: flex-start;
+}
+
+/* ── Left Column (Image & Info) ───────────────────────── */
+.imageColumn {
+    width: 300px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.profileImage {
+    width: 100%;
+    aspect-ratio: 2/3;
+    object-fit: cover;
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    background: var(--bg-surface);
+}
+
+.personalInfo {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    padding: 1.5rem;
+}
+
+.personalInfo h3 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--text-main);
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.infoBlock {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.infoBlock:last-child {
+    margin-bottom: 0;
+}
+
+.infoBlock strong {
+    font-size: 0.85rem;
+    color: var(--text-main);
+    font-weight: 600;
+}
+
+.infoBlock span {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+/* ── Right Column (Bio & Credits) ─────────────────────── */
+.bioColumn {
+    flex: 1;
+    min-width: 0;
+}
+
+.name {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 900;
+    letter-spacing: -1px;
+    color: var(--text-main);
+    margin-bottom: 1.5rem;
+}
+
+.sectionHeading {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--text-main);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    position: relative;
+    padding-left: 1rem;
+}
+
+.sectionHeading::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 1.1em;
+    background: var(--primary-accent);
+    border-radius: 99px;
+}
+
+.name+.sectionHeading {
+    margin-top: 0;
+}
+
+.biography {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+    /* Multi-paragraph formatting */
+}
+
+.biography p {
+    margin-bottom: 1rem;
+}
+
+.biography p:last-child {
+    margin-bottom: 0;
+}
+
+/* ── Known For Grid ───────────────────────────────────── */
+.knownForSection {
+    margin-top: 3rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+/* ── Responsive ───────────────────────────────────────── */
+@media (max-width: 900px) {
+    .profileSection {
+        flex-direction: column;
+    }
+
+    .imageColumn {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    .name {
+        text-align: center;
+        margin-top: 1.5rem;
+    }
+
+    .sectionHeading {
+        margin-top: 2.5rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 0 1rem;
+    }
+
+    .grid {
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+        gap: 1rem;
+    }
+}

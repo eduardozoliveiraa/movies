@@ -1,0 +1,155 @@
+.container {
+    margin: 2.5rem 0;
+    position: relative;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    margin-bottom: 0.75rem;
+}
+
+.title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text-main);
+    letter-spacing: -0.3px;
+    position: relative;
+    padding-left: 1rem;
+}
+
+.title::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 1.2em;
+    background: var(--primary-accent);
+    border-radius: 99px;
+}
+
+.viewAll {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    transition: color var(--transition-fast);
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.viewAll:hover {
+    color: var(--primary-accent);
+}
+
+/* ── Carousel Wrapper ─────────────────────────────────── */
+.carouselWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Left gradient fade */
+.carouselWrapper::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 80px;
+    background: linear-gradient(to right, var(--bg-color) 0%, transparent 100%);
+    z-index: 10;
+    pointer-events: none;
+}
+
+/* Right gradient fade */
+.carouselWrapper::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 80px;
+    background: linear-gradient(to left, var(--bg-color) 0%, transparent 100%);
+    z-index: 10;
+    pointer-events: none;
+}
+
+.carousel {
+    display: flex;
+    gap: 0.85rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 1.25rem 2rem;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.carousel::-webkit-scrollbar {
+    display: none;
+}
+
+/* ── Control Buttons ───────────────────────────────────── */
+.controlButton {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 50;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(20, 24, 36, 0.9);
+    border: 1px solid var(--border-color-hover);
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: all var(--transition-smooth);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-md);
+}
+
+.carouselWrapper:hover .controlButton {
+    opacity: 1;
+}
+
+.controlButton:hover {
+    background: var(--primary-accent);
+    border-color: var(--primary-accent);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: var(--shadow-red);
+}
+
+.leftButton {
+    left: 0.5rem;
+}
+
+.rightButton {
+    right: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 0 1rem;
+    }
+
+    .carousel {
+        padding: 1rem 1rem;
+    }
+
+    .controlButton {
+        display: none;
+    }
+
+    .carouselWrapper::before,
+    .carouselWrapper::after {
+        width: 40px;
+    }
+}

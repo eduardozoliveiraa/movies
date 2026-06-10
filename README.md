@@ -1,37 +1,99 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CineStream
 
-## Getting Started
+Catálogo responsivo de filmes e séries desenvolvido com Next.js. O projeto permite explorar títulos, consultar detalhes, pesquisar conteúdos e manter uma lista pessoal de favoritos.
 
-First, run the development server:
+## Funcionalidades
+
+- Página inicial com destaques e carrosséis por categoria
+- Catálogos separados de filmes e séries
+- Busca por título
+- Navegação por gêneros
+- Páginas de detalhes com sinopse, avaliação, elenco e trailer
+- Páginas individuais de atores e atrizes
+- Lista de favoritos persistida no `localStorage`
+- Menu responsivo para dispositivos móveis
+- Dados de demonstração disponíveis sem configuração externa
+- Integração opcional com a API do TMDB
+
+## Tecnologias
+
+- [Next.js](https://nextjs.org/) com App Router
+- [React](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- CSS Modules
+- [Lucide React](https://lucide.dev/) para ícones
+- [TMDB API](https://developer.themoviedb.org/docs/getting-started) para dados de filmes e séries
+
+## Como executar
+
+### Pré-requisitos
+
+- Node.js 20 ou superior
+- npm
+
+### Instalação
+
+```bash
+git clone <url-do-repositorio>
+cd filme
+npm install
+```
+
+Crie um arquivo `.env.local` na raiz do projeto:
+
+```env
+NEXT_PUBLIC_TMDB_API_KEY=sua_chave_do_tmdb
+```
+
+A chave é opcional. Quando ela não é informada, a aplicação utiliza um catálogo local de demonstração.
+
+Inicie o servidor de desenvolvimento:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Acesse [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Comando | Descrição |
+| --- | --- |
+| `npm run dev` | Inicia o ambiente de desenvolvimento |
+| `npm run build` | Gera a versão de produção |
+| `npm run start` | Executa a versão de produção |
+| `npm run lint` | Analisa o código com ESLint |
 
-## Learn More
+## Rotas principais
 
-To learn more about Next.js, take a look at the following resources:
+| Rota | Conteúdo |
+| --- | --- |
+| `/` | Destaques e categorias |
+| `/movies` | Catálogo de filmes |
+| `/tv` | Catálogo de séries |
+| `/genres` | Lista de gêneros |
+| `/genre/[id]` | Títulos de um gênero |
+| `/search?q=termo` | Resultados da pesquisa |
+| `/movie/[id]` | Detalhes de um filme |
+| `/tv/[id]` | Detalhes de uma série |
+| `/person/[id]` | Perfil e trabalhos de uma pessoa |
+| `/my-list` | Títulos favoritos |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Estrutura do projeto
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```text
+app/          Rotas, páginas e estilos globais
+components/   Componentes reutilizáveis da interface
+context/      Estado global dos favoritos
+lib/          Integração com o TMDB e dados de demonstração
+public/       Arquivos estáticos
+```
 
-## Deploy on Vercel
+## Build de produção
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm run build
+npm run start
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# movies
+Os dados recebidos do TMDB são revalidados a cada hora. Os favoritos permanecem armazenados somente no navegador do usuário.

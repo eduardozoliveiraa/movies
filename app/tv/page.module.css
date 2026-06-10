@@ -1,0 +1,74 @@
+/* Shared TV page styles — uses shared page design */
+.pageWrapper {
+    min-height: 100vh;
+    padding-top: calc(var(--nav-height) + 3rem);
+    padding-bottom: 4rem;
+    animation: fadeIn 0.4s ease;
+}
+
+.pageHeader {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem 2.5rem;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 3rem;
+}
+
+.pageTitle {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 900;
+    letter-spacing: -1px;
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+}
+
+.pageSubtitle {
+    color: var(--text-muted);
+    font-size: 1rem;
+}
+
+.gridContainer {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
+    gap: 1.75rem;
+}
+
+.countBadge {
+    display: inline-flex;
+    align-items: center;
+    background: var(--primary-accent-dim);
+    border: 1px solid rgba(229, 9, 20, 0.25);
+    color: var(--primary-accent-hover);
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.25rem 0.7rem;
+    border-radius: 99px;
+    margin-left: 0.75rem;
+    vertical-align: middle;
+}
+
+@media (max-width: 768px) {
+    .pageWrapper {
+        padding-top: calc(var(--nav-height) + 1.5rem);
+    }
+
+    .pageHeader {
+        padding: 0 1rem 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .gridContainer {
+        padding: 0 1rem;
+    }
+
+    .grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 1rem;
+    }
+}
